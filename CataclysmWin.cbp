@@ -45,13 +45,23 @@
 					<Add option="-DRELEASE=1" />
 					<Add directory="WinDepend/include" />
 					<Add directory="WinDepend/include/SDL2" />
+					<Add directory="C:/MinGW/include" />
+					<Add directory="C:/MinGW/include/SDL2" />
 				</Compiler>
 				<Linker>
-					<Add library="libSDL2.dll.a" />
-					<Add library="libSDL2main.a" />
-					<Add library="libSDL2_ttf.dll.a" />
-					<Add library="libSDL2_image.dll.a" />
+					<Add option="-lmingw32" />
+					<Add option="-lSDL2main" />
+					<Add option="-lSDL2" />
+					<Add option="-lSDL2_ttf" />
+					<Add option="-lSDL2_image" />
+					<Add option="-lSDL2_mixer" />
+					<Add library="C:/MinGW/lib/libSDL2.dll.a" />
+					<Add library="C:/MinGW/lib/libSDL2main.a" />
+					<Add library="C:/MinGW/lib/libSDL2_ttf.dll.a" />
+					<Add library="C:/MinGW/lib/libSDL2_image.dll.a" />
+					<Add library="C:/MinGW/lib/libSDL2_mixer.dll.a" />
 					<Add directory="WinDepend/lib" />
+					<Add directory="C:/MinGW/lib" />
 				</Linker>
 			</Target>
 			<Target title="Release (Lua)">
@@ -323,8 +333,8 @@
 			<Add option="-D_WINDOWS -D_MINGW -D_WIN32 -DWIN32 -D__MINGW__" />
 		</Compiler>
 		<Linker>
-			<Add option="-Wl,-stack,12000000,-subsystem,windows" />
 			<Add option="-static" />
+			<Add option="-Wl,-stack,12000000,-subsystem,windows" />
 			<Add library="gdi32" />
 			<Add library="winmm" />
 		</Linker>
@@ -335,10 +345,11 @@
 			<Add before="cmd /c del version.tmp" />
 			<Mode after="always" />
 		</ExtraCommands>
-		<UnitsGlob directory="src" recursive="0" />
-		<Unit filename="src/resource.rc">
-			<Option compilerVar="WINDRES" />
-		</Unit>
+		<UnitsGlob directory="src" recursive="0" wildcard="" />
+		<Unit filename="SDL2.dll" />
+		<Unit filename="SDL2_image.dll" />
+		<Unit filename="SDL2_mixer.dll" />
+		<Unit filename="SDL2_ttf.dll" />
 		<Extensions>
 			<code_completion />
 			<debugger />
