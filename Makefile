@@ -600,7 +600,7 @@ ifdef TILES
         ifeq ($(MSYS2),1)
           LDFLAGS += -Wl,--start-group -lharfbuzz -lfreetype -Wl,--end-group -lgraphite2 -lpng -lz -ltiff -lbz2 -lglib-2.0 -llzma -lws2_32 -lintl -liconv -lwebp -ljpeg -luuid
         else
-          LDFLAGS += -lfreetype -lpng -lz -ljpeg -lbz2
+          LDFLAGS += -lfreetype
         endif
       endif
     else
